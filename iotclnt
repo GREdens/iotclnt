@@ -1,0 +1,24 @@
+### BEGIN INIT INFO
+# Provides:             iotclnt
+# Required-Start:
+# Required-Stop:
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    IoT Client Node App
+### END INIT INFO
+
+
+case "$1" in
+  start)
+    /usr/local/bin/forever start /home/pi/iotclnt/client.js
+    ;;
+  stop)
+    exec /usr/local/bin/forever stopall
+    ;;
+  *)
+
+  echo "Usage: /etc/init.d/iotclnt {start|stop}"
+  exit 1
+  ;;
+esac
+exit 0
