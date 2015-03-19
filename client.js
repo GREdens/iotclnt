@@ -6,8 +6,7 @@
 
 'use strict';
 
-var util = require('util'),  
-    http = require('http'),
+var http = require('http'),
     os = require('os');
 
 /**
@@ -20,7 +19,7 @@ var ifaces = os.networkInterfaces(),
     ip = '',
     url = 'http://www.edens-ict.com/iotns/srv.php';
 
- util.puts('IoT Client - register to IoT Name Server');
+ console.log('IoT Client - register to IoT Name Server');
 
 function sendRequest(){
     // Request
@@ -29,8 +28,8 @@ function sendRequest(){
 
     request({url:url, qs:propertiesObject}, function(err, response, body) {
         if(err) { console.log(err); return; }
-        util.puts('> IoT Client - get response -' +  response.statusCode);
-        util.puts(body);
+        console.log('> IoT Client - get response -' +  response.statusCode);
+        console.log(body);
     });
 }
 
@@ -69,4 +68,4 @@ http.createServer(function (req, res) {
 }).listen(8080);
 
 /* server started */  
-util.puts('IoT Client - running on port 8080');
+console.log('IoT Client - running on port 8080');
