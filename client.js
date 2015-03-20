@@ -19,7 +19,7 @@ var ifaces = os.networkInterfaces(),
     ip = '',
     url = 'http://www.edens-ict.com/iotns/srv.php';
 
- console.log('IoT Client - register to IoT Name Server');
+console.log('IoT Client - register to IoT Name Server');
 
 function sendRequest(){
     // Request
