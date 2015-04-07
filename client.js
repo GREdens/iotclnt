@@ -3,69 +3,35 @@
  * IoT Client (nodejs)
  *
  */
+(function(){
+    'use strict';
 
-'use strict';
 
-var http = require('http'),
-    os = require('os');
+    var express = require('express');
+    var app = express();
 
-/**
- *
- * Register to IoT Name Server.
- *
- */
-var ifaces = os.networkInterfaces(),
-    id = 'RSAP01AB89C43SA24',
-    ip = '',
-    url = 'http://www.edens-ict.com/iotns/srv.php';
-
-console.log('IoT Client - register to IoT Name Server');
-
-function sendRequest(){
-    // Request
-    var request = require('request');
-    var propertiesObject = { ip: ip, id: id, a: 'i' };
-
-    request({url:url, qs:propertiesObject}, function(err, response, body) {
-        if(err) { console.log(err); return; }
-        console.log('> IoT Client - get response -' +  response.statusCode);
-        console.log(body);
+    app.use(express.static('public_html'));
+    
+    app.get('/iotsrv/', function (req, res) {
+        res.send('Hello World!');
     });
-}
 
-Object.keys(ifaces).forEach(function (ifname) {
-    var alias = 0;
-
-    ifaces[ifname].forEach(function (iface) {
-        if ('IPv4' !== iface.family || iface.internal !== false) {
-            // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-            return;
-        }
-
-        if (alias >= 1) {
-            // this single interface has multiple ipv4 addresses
-            console.log(ifname + ':' + alias, iface.address);
-            ip = iface.address;
-            sendRequest();
-        } else {
-            // this interface has only one ipv4 adress
-            console.log(ifname, iface.address);
-            ip = iface.address;
-            sendRequest();
-        }
+    app.get('/msrv/', function (req, res) {
+    	res.json({ code : 200, status: 'ok' });
     });
-});
 
-/**
- *
- * Register a small webserver to run forever!
- *
- */
-http.createServer(function (req, res) {  
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write('hello, world.')
-    res.end();
-}).listen(8080);
+    var server = app.listen(80, function () {
 
-/* server started */  
-console.log('IoT Client - running on port 8080');
+        var host = server.address().address;
+        var port = server.address().port;
+
+        console.log('Example app listening at http://%s:%s', host, port);
+
+    });
+    
+    
+    /* server started */  
+    console.log('IoT Client - running on port 80');
+
+
+}());

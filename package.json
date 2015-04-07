@@ -1,0 +1,19 @@
+{
+  "name": "IoTClient",
+  "version": "1.0.0",
+  "description": "The IoT Mendix client system creates an enironment to test the Raspberry PI.",
+  "main": "client.js",
+  "scripts": {
+    "test": "/test"
+  },
+  "keywords": [
+    "Raspberry Pi",
+    "testing"
+  ],
+  "author": "Gerhard Richard Edens",
+  "license": "Apache 2",
+  "dependencies": {
+    "express": "^4.12.3",
+    "sqlite3": "^3.0.5"
+  }
+}
