@@ -10,16 +10,14 @@ The Internet Of Things Client is a test project to prepare a raspberry device to
 * wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 * sudo dpkg -i node_latest_armhf.deb 
 
-## Step 3: Install node-gyp globally
-* sudo npm install node-gyp -g
-
-## Step 4: Install forever globally
+## Step 3: Install forever globally
 * npm install -g forever
 
-## Step 5: Install the git repository in the following path
+## Step 4: Install the git repository in the following path
 * /home/pi/iotclnt
 
-## Step 6: Install all node dependencies
+## Step 5: Install all node dependencies
+* cd /home/pi/iotclnt/
 * npm install
 
 ## Step 6: Copy the daemon script to /etc/init.d
