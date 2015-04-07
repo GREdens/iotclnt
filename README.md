@@ -3,18 +3,24 @@ The Internet Of Things Client is a test project to prepare a raspberry device to
 
 # Installation instruction.
 
-## Step 1: Install forever globally
+## Step 1: Update and upgrade OS
+sudo apt-get update && sudo apt-get upgrade
+
+## Step 2: Update and upgrads nodejs
+wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
+sudo dpkg -i node_latest_armhf.deb 
+
+## Step 3: Install forever globally
 * npm install -g forever
 
-## Step 2: Install the git repository in the following path
+## Step 4: Install the git repository in the following path
 * /home/pi/iotclnt
 
-## Step 3: Copy the daemon script to /etc/init.d
+## Step 5: Copy the daemon script to /etc/init.d
 * cp /home/pi/iotclnt/iotclnt /etc/init.d
 * cd /etc/init.d
 * chmod +x iotclnt
 
-## Step 4: Add the daemon to the rc.local
+## Step 6: Add the daemon to the rc.local
 * sudo nano /etc/rc.local
 * Add on an empty row: /usr/bin/sudo service iotclnt start
-
