@@ -6,7 +6,7 @@ The Internet Of Things Client is a test project to prepare a raspberry device to
 ## Step 1: Update and upgrade OS
 sudo apt-get update && sudo apt-get upgrade
 
-## Step 2: Update and upgrads nodejs
+## Step 2: Update and upgrade NodeJS
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
 sudo dpkg -i node_latest_armhf.deb 
 
