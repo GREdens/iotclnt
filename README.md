@@ -19,6 +19,9 @@ The Internet Of Things Client is a test project to prepare a raspberry device to
 ## Step 5: Install the git repository in the following path
 * /home/pi/iotclnt
 
+## Step 6: Install all node dependencies
+* npm install
+
 ## Step 6: Copy the daemon script to /etc/init.d
 * cp /home/pi/iotclnt/iotclnt /etc/init.d
 * cd /etc/init.d
